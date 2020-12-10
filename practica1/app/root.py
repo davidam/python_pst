@@ -10,3 +10,6 @@ class Root(object):
         if self.hp > 0:
             return True
 
+    def hurt(self):
+        n = random.randint(1,self.dmg)
+        return n
