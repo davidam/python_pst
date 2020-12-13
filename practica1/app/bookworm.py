@@ -1,14 +1,24 @@
 from app.character import Character
 
-class Bookworm(Character):
 
+class Bookworm(Character):
+# "Una vez cada 4 rondas puede resucitar a otro jugador que haya "
+# "perdido todos los puntos de vida.\nSi se utiliza la habilidad y no "
+# "hay ningún jugador sin puntos de vida no cuenta como usada."
+    
     def __init__(self):
         super().__init__(25, 9)
-        self.skill = "Una vez cada 4 rondas puede resucitar a otro jugador que haya "
-        self.skill += "perdido todos los puntos de vida.\nSi se utiliza la habilidad y no "
-        self.skill += "hay ningún jugador sin puntos de vida no cuenta como usada."
+        self.rounds_accumulated = 0
         self.skill_used = False
 
+    def nextRound(self):
+        self.rounds_accumulated = self.rounds_accumulated + 1
+
+    def resurrection(self, player):
+        if (self.rounds_accumulated > 4):
+            player.hp = 1
+            self.rounds_accumulated = 0
+            
     def getSkill(self):
         return self.skill
 
