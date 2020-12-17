@@ -24,7 +24,7 @@ from app.worker import Worker
 class TddInPythonExample(unittest.TestCase):
 
     def test_init(self):
-        w = Worker(40,10)
+        w = Worker()
         self.assertEqual(w.hp, 40)
         self.assertEqual(w.dmg, 10)
         self.assertTrue(w.is_alive())
