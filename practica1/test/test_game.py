@@ -44,3 +44,11 @@ class TddInPythonExample(unittest.TestCase):
         before = uno.hp
         g.attack(one, uno)
         self.assertTrue(before > uno.hp)
+
+    def test_check_with_life(self):
+        g = Game()
+        g.initialize_enemies()
+        ewl = g.check_with_life(g.list_enemies)
+        cwl = g.check_with_life(g.list_characters)        
+        self.assertEqual(ewl, False) 
+        self.assertEqual(cwl, True)       

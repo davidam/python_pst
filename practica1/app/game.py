@@ -43,3 +43,13 @@ class Game(object):
         to1.hp = to1.hp - damage
         return to1.hp
     
+    def check_with_life(self, l):
+        alldies = True
+        for i in l:
+            if (i.is_alive()):
+                death = False
+            else:
+                death = True
+            alldies = (alldies and death)
+        return alldies
+
