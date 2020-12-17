@@ -12,7 +12,7 @@ class Game(object):
     def generate_enemy(self):
         l = [0, 1, 2, 3]
         for x in range(4):
-            n = random.randint(1,4))
+            n = random.randint(1,4)
             if (n == 1):
                 enemy = PartialExam()
             elif (n == 2):            
@@ -23,15 +23,15 @@ class Game(object):
                 enemy = Teacher()
         return enemy
     
-    def initializa_enemies(self):
-        enemie1 = Enemy()
-        self.list_enemies.append(enemie1)
-        enemie2 = Enemy()
-        self.list_enemies.append(enemie2)        
-        enemie3 = Enemy()
-        self.list_enemies.append(enemie3)        
-        enemie4 = Enemy()
-        self.list_enemies.append(enemie4)
+    def initialize_enemies(self):
+        enemy1 = self.generate_enemy()
+        self.list_enemies.append(enemy1)
+        enemy2 = self.generate_enemy()
+        self.list_enemies.append(enemy2)        
+        enemy3 = self.generate_enemy()
+        self.list_enemies.append(enemy3)        
+        enemy4 = self.generate_enemy()
+        self.list_enemies.append(enemy4)
         return self.list_enemies
 
     def next_level(self):
