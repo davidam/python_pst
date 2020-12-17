@@ -21,6 +21,8 @@
 import unittest
 from app.character import Character
 from app.game import Game
+from app.worker import Worker
+from app.enemy import PartialExam
 
 class TddInPythonExample(unittest.TestCase):
 
@@ -35,3 +37,10 @@ class TddInPythonExample(unittest.TestCase):
         g = Game()
         self.assertEqual(len(g.initialize_enemies()), 4)
         
+    def test_attack_1to1(self):
+        g = Game()
+        one = PartialExam()
+        uno = Worker()
+        before = uno.hp
+        g.attack(one, uno)
+        self.assertTrue(before > uno.hp)
