@@ -3,7 +3,7 @@ from app.enemy import *
 
 class Game(object):
 
-    def __init__(self, turn, dmg):
+    def __init__(self):
         self.turn = 0
         self.level = 0
         self.list_enemies = []
@@ -23,8 +23,7 @@ class Game(object):
                 enemy = Teacher()
         return enemy
     
-    def next_turn(self):
-        self.turn = self.turn + 1
+    def initializa_enemies(self):
         enemie1 = Enemy()
         self.list_enemies.append(enemie1)
         enemie2 = Enemy()
@@ -32,12 +31,15 @@ class Game(object):
         enemie3 = Enemy()
         self.list_enemies.append(enemie3)        
         enemie4 = Enemy()
-        self.list_enemies.append(enemie4)        
-        return self.turn
+        self.list_enemies.append(enemie4)
+        return self.list_enemies
 
     def next_level(self):
         self.level = self.level + 1
         return self.level
 
-    
+    def attack(self, from1, to1):
+        damage = from1.hurt()
+        to1.hp = to1.hp - damage
+        return to1.hp
     
