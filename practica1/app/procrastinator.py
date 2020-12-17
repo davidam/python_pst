@@ -2,13 +2,9 @@
 from app.root import Root
 from app.character import Character
 
-class Procrastinator:
+class Procrastinator(Character):
 
-    def __init__(self, hp, dmg):
+    def __init__(self):
         super().__init__(30, 6)
-        self.victory = False
         
-    def is_alive(self):
-        if self.hp > 0:
-            return True
 
