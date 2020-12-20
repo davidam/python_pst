@@ -12,7 +12,7 @@ class Worker(Character):
         if self.hp > 0:
             return True
 
-    def special_hurt(self):
+    def hurt(self):
         if (self.rounds_accumulated == 3):
             value = (10 + super.hurt()) * 1.5
         else:
