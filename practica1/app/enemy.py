@@ -11,11 +11,23 @@ class PartialExam(Enemy):
 class FinalExam(Enemy):
     def __init__(self):
         super(Enemy, self).__init__(hp = 40, dmg = 12)
+
+    def hurt(self):
+        if (super.hurt() == 7):
+            value = 14
+        else:
+            value = super.hurt()
+        return value
     
+        
 class TheoreticalClass(Enemy):
     def __init__(self):
         super(Enemy, self).__init__(hp = 40, dmg = 12)
 
+    def hurt(self):
+        value = super.hurt() + self.level
+        return value
+        
 class Teacher(Enemy):
     def __init__(self):
         super(Enemy, self).__init__(hp = 15, dmg = 7)
