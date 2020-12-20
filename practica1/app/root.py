@@ -5,6 +5,8 @@ class Root(object):
     def __init__(self, hp, dmg):
         self.hp = hp
         self.dmg = dmg
+        self.level = 0
+        self.turn = 0
 
     def is_alive(self):
         if self.hp > 0:
