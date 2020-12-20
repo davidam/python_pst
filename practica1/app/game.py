@@ -10,17 +10,22 @@ class Game(object):
         self.list_characters = []
 
     def generate_enemy(self):
-        l = [0, 1, 2, 3]
-        for x in range(4):
-            n = random.randint(1,4)
+        if (self.level > 3): # En la regla especial final exam dice que 
+                             # solo puede aparecer a partir del 4 nivel
+            l = [0, 1, 2, 3]
+        else:
+            l = [0, 1, 2]
+        for x in range(len(l)):
+            n = random.randint(1,len(l))
             if (n == 1):
                 enemy = PartialExam()
-            elif (n == 2):            
-                enemy = FinalExam()                
-            elif (n == 3):
+            elif (n == 2):
                 enemy = TheoreticalClass()
-            elif (n == 4):
+            elif (n == 3):
                 enemy = Teacher()
+            elif (n == 4):            
+                enemy = FinalExam()                
+                
         return enemy
     
     def initialize_enemies(self):
@@ -53,3 +58,17 @@ class Game(object):
             alldies = (alldies and death)
         return alldies
 
+    def attack_enemies_to_characters(self):
+        for i in self.list_enemies:
+            n = random.randint(0,len(self.list_characters))        
+            self.attack(i, self.list_characters[n])
+        return self.list_characters
+
+    def attack_characters_to_enemies(self):
+        for i in self.list_characters:
+            n = random.randint(0,len(self.list_enemies))        
+            self.attack(i, self.list_enemies[n])
+        return self.list_enemies
+
+#    def main(self):
+        
