@@ -41,8 +41,23 @@ class Game(object):
 
     def next_level(self):
         self.level = self.level + 1
+        self.turn = 0
+        for i in self.list_enemies:
+            i.level = i.level + 1
+            i.turn = 0
+        for j in self.list_characters:
+            j.level = j.level + 1
+            j.turn = 0            
         return self.level
 
+    def next_turn(self):
+        self.turn = self.turn + 1
+        for i in self.list_enemies:
+            i.turn = i.turn + 1
+        for j in self.list_characters:
+            j.turn = j.turn + 1
+        return self.turn
+    
     def attack(self, from1, to1):
         damage = from1.hurt()
         to1.hp = to1.hp - damage
